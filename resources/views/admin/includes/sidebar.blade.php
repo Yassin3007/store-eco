@@ -13,7 +13,7 @@
                         class="badge badge badge-info badge-pill float-right mr-2"></span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{"
+                    <li class="active"><a class="menu-item" href=""
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
@@ -24,7 +24,57 @@
 
 
             <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الاقسام الرئيسيه </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">الاقسام  </span>
+                    <span
+                        class="badge badge badge-danger badge-pill float-right mr-2"> </span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href=""
+                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                    <li><a class="menu-item" href=""
+                           data-i18n="nav.dash.crypto">أضافة
+                            قسم جديد </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            {{--  <li class="nav-item"><a href=""><i class="la la-group"></i>
+                      <span class="menu-title" data-i18n="nav.dash.main">الاقسام الفرعية   </span>
+                      <span
+                          class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Category::child() -> count()}}</span>
+                  </a>
+                  <ul class="menu-content">
+                      <li class="active"><a class="menu-item" href="{{route('admin.subcategories')}}"
+                                            data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                      </li>
+                      <li><a class="menu-item" href="{{route('admin.subcategories.create')}}" data-i18n="nav.dash.crypto">أضافة
+                              قسم فرعي جديد </a>
+                      </li>
+                  </ul>
+              </li>
+  --}}
+            @can('brands')
+                <li class="nav-item"><a href=""><i class="la la-group"></i>
+                        <span class="menu-title" data-i18n="nav.dash.main"> الماركات التجارية  </span>
+                        <span
+                            class="badge badge badge-danger badge-pill float-right mr-2"></span>
+                    </a>
+                    <ul class="menu-content">
+                        <li class="active"><a class="menu-item" href=""
+                                              data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                        </li>
+                        <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
+                                ماركة جديده </a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
+
+
+            <li class="nav-item"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> العلامات tags  </span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2"></span>
                 </a>
@@ -33,103 +83,101 @@
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                             قسم جديد </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الاقسام الفرعية   </span>
-                    <span
-                        class="badge badge badge-danger badge-pill float-right mr-2">400</span>
-                </a>
-                <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
-                    </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            قسم فرعي جديد </a>
+                        </a>
                     </li>
                 </ul>
             </li>
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المتاجر  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">المنتجات  </span>
                     <span
-                        class="badge badge badge-success badge-pill float-right mr-2"></span>
+                        class="badge badge badge-success badge-pill float-right mr-2"> </span>
                 </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href=""
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            متجر  </a>
+                    <li><a class="menu-item" href=""
+                           data-i18n="nav.dash.crypto">أضافة
+                            منتج جديد </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a href=""><i class="la la-male"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">خصائص المنتج  </span>
+                    <span
+                        class="badge badge badge-success badge-pill float-right mr-2"> </span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href=""
+                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أاضافة
+                            جديدة </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a href=""><i class="la la-male"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">قيم الخصائص </span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href=""
+                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أاضافة
+                            جديدة </a>
                     </li>
                 </ul>
             </li>
 
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الطلاب  </span>
-                    <span
-                        class="badge badge badge-warning  badge-pill float-right mr-2"></span>
+                    <span class="menu-title" data-i18n="nav.dash.main">مستخدمي لوحه التحكم </span>
                 </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href=""
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            طالب </a>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أاضافة
+                            جديدة </a>
                     </li>
                 </ul>
             </li>
 
 
-            <li class="nav-item">
-                <a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">تذاكر المراسلات   </span>
-                    <span
-                        class="badge badge badge-danger  badge-pill float-right mr-2">0</span>
-                </a>
-                <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> تذاكر الطلاب </a>
-                    </li>
-                </ul>
-            </li>
+
 
 
             <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                                                                                    data-i18n="nav.templates.main">Templates</span></a>
+                                                                                    data-i18n="nav.templates.main">{{__('admin/sidebar.settings')}}</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">Vertical</a>
+                    <li><a class="menu-item" href="#"
+                           data-i18n="nav.templates.vert.main"> وسائل التوصيل </a>
                         <ul class="menu-content">
-                            <li><a class="menu-item" href="../vertical-menu-template"
-                                   data-i18n="nav.templates.vert.classic_menu">Classic Menu</a>
+                            <li><a class="menu-item" href="{{route('edit.shippings.methods','free')}}"
+                                   data-i18n="nav.templates.vert.classic_menu">توصيل مجاني </a>
                             </li>
-                            <li><a class="menu-item" href="../vertical-modern-menu-template">Modern Menu</a>
+                            <li><a class="menu-item" href="{{route('edit.shippings.methods','inner')}}"> توصيل
+                                    داخلي </a>
                             </li>
-                            <li><a class="menu-item" href="../vertical-compact-menu-template"
-                                   data-i18n="nav.templates.vert.compact_menu">Compact Menu</a>
-                            </li>
-                            <li><a class="menu-item" href="../vertical-content-menu-template"
-                                   data-i18n="nav.templates.vert.content_menu">Content Menu</a>
-                            </li>
-                            <li><a class="menu-item" href="../vertical-overlay-menu-template"
-                                   data-i18n="nav.templates.vert.overlay_menu">Overlay Menu</a>
+                            <li><a class="menu-item" href="{{route('edit.shippings.methods','outer')}}"
+                                   data-i18n="nav.templates.vert.compact_menu"> توصيل خارجي </a>
                             </li>
                         </ul>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.templates.horz.main">Horizontal</a>
+
+                    <li><a class="menu-item" href="#"
+                           data-i18n="nav.templates.vert.main"></a>
                         <ul class="menu-content">
-                            <li><a class="menu-item" href="../horizontal-menu-template"
-                                   data-i18n="nav.templates.horz.classic">Classic</a>
-                            </li>
-                            <li><a class="menu-item" href="../horizontal-menu-template-nav"
-                                   data-i18n="nav.templates.horz.top_icon">Full Width</a>
+                            <li><a class="menu-item" href=""
+                                   data-i18n="nav.templates.vert.classic_menu">صور الاسليدر </a>
                             </li>
                         </ul>
                     </li>
+
+
                 </ul>
             </li>
             <li class=" navigation-header">
