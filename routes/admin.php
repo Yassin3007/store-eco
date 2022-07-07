@@ -25,7 +25,8 @@ Route::group(
         return view('welcome');
     });
     route::group(['namespace'=>'Admin' ,'middleware' =>'auth:admin','prefix'=>'admin'] ,function(){
-        route::get('/' , 'DashboardController@index')->name('admin.dashboard') ;
+        route::get('/dashboard' , 'DashboardController@index')->name('admin.dashboard') ;
+        route::get('logout' , 'LoginController@logout')->name('admin.logout');
 
         route::group(['prefix' => 'settings' ,'prefix'=>'admin'] , function(){
             route::get('shipping-methods/{type}' , 'SettingsController@editShippingMethods')->name('edit.shippings.methods');
@@ -35,16 +36,14 @@ Route::group(
 
     });
     route::group(['namespace'=>'Admin','middleware'=>'guest:admin', 'prefix'=>'admin'],function(){
-        route::get('login' , 'LoginController@login') ;
+        route::get('login' , 'LoginController@login')->name('admin.login') ;
         route::post('login' , 'LoginController@postLogin')->name('admin.post.login') ;
     });
 
 
 
 
-    route::get('ad' , function(){
-        return 'admin loginnnnnnnn' ;
-    })->name('admin.login');
+
 
 });
 
