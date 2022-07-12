@@ -28,10 +28,16 @@ Route::group(
         route::get('/dashboard' , 'DashboardController@index')->name('admin.dashboard') ;
         route::get('logout' , 'LoginController@logout')->name('admin.logout');
 
-        route::group(['prefix' => 'settings' ,'prefix'=>'admin'] , function(){
+        route::group(['prefix' => 'settings' ] , function(){
             route::get('shipping-methods/{type}' , 'SettingsController@editShippingMethods')->name('edit.shippings.methods');
             route::put('shipping-methods/{id}' , 'SettingsController@updateShippingMethods')->name('update.shippings.methods');
         });
+
+        route::group(['prefix' => 'profile' ] , function(){
+            route::get('shipping-methods' , 'ProfileController@editProfile')->name('edit.profile');
+            route::put('shipping-methods' , 'ProfileController@updateProfile')->name('update.profile');
+        });
+
 
 
     });
