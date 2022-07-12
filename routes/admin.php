@@ -25,26 +25,31 @@ Route::group(
         return view('welcome');
     });
     route::group(['namespace'=>'Admin' ,'middleware' =>'auth:admin','prefix'=>'admin'] ,function(){
-        route::get('/' , 'DashboardController@index')->name('admin.dashboard') ;
+        route::get('/dashboard' , 'DashboardController@index')->name('admin.dashboard') ;
+        route::get('logout' , 'LoginController@logout')->name('admin.logout');
 
-        route::group(['prefix' => 'settings' ,'prefix'=>'admin'] , function(){
+        route::group(['prefix' => 'settings' ] , function(){
             route::get('shipping-methods/{type}' , 'SettingsController@editShippingMethods')->name('edit.shippings.methods');
             route::put('shipping-methods/{id}' , 'SettingsController@updateShippingMethods')->name('update.shippings.methods');
         });
 
+        route::group(['prefix' => 'profile' ] , function(){
+            route::get('shipping-methods' , 'ProfileController@editProfile')->name('edit.profile');
+            route::put('shipping-methods' , 'ProfileController@updateProfile')->name('update.profile');
+        });
+
+
 
     });
     route::group(['namespace'=>'Admin','middleware'=>'guest:admin', 'prefix'=>'admin'],function(){
-        route::get('login' , 'LoginController@login') ;
+        route::get('login' , 'LoginController@login')->name('admin.login') ;
         route::post('login' , 'LoginController@postLogin')->name('admin.post.login') ;
     });
 
 
 
 
-    route::get('ad' , function(){
-        return 'admin loginnnnnnnn' ;
-    })->name('admin.login');
+
 
 });
 
