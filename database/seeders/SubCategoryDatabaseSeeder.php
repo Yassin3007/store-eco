@@ -6,7 +6,7 @@ use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CategoryDatabaseSeeder extends Seeder
+class SubCategoryDatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,8 +18,12 @@ class CategoryDatabaseSeeder extends Seeder
        Category::factory()
             ->count(50)
 
-            ->create();
+            ->create(['parent_id'=>$this->getRandomValue()]);
     }
+    private function getRandomValue()
+    {
+        $parent_id =  \App\Models\Category::inRandomOrder()->first();
+        return $parent_id;
 
-
+        }
 }
