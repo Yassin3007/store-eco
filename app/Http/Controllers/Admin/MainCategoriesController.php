@@ -14,7 +14,7 @@ class MainCategoriesController extends Controller
 
     public function index()
     {
-        $categories = Category::parent()->orderBy('id','DESC') -> paginate(PAGINATION_COUNT);
+        $categories = Category::with('_parent')->orderBy('id','DESC') -> paginate(PAGINATION_COUNT);
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -38,14 +38,21 @@ class MainCategoriesController extends Controller
             else
                 $request->request->add(['is_active' => 1]);
 
+            if($request -> type == 1 ) //main category
+            {
+                $request->request->add(['parent_id' => null]);
+            }
+
+
             $category = Category::create($request->except('_token'));
 
             //save translations
             $category->name = $request->name;
             $category->save();
+            DB::commit();
 
             return redirect()->route('admin.maincategories')->with(['success' => 'تم ألاضافة بنجاح']);
-            DB::commit();
+
 
         } catch (\Exception $ex) {
             DB::rollback();

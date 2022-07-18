@@ -42,9 +42,10 @@ class SubCategoriesController extends Controller
             //save translations
             $category->name = $request->name;
             $category->save();
+            DB::commit();
 
             return redirect()->route('admin.subcategories')->with(['success' => 'تم ألاضافة بنجاح']);
-            DB::commit();
+
 
         } catch (\Exception $ex) {
             DB::rollback();
