@@ -16,6 +16,10 @@ class Tag extends Model
 
     protected $fillable =['slug'];
 
+    public function scopeActive($query){
+        return $query->where('is_active',1) ;
+    }
+
 
 
 }
