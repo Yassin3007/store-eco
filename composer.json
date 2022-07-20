@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "mcamara/laravel-localization": "^1.7",
+        "spatie/enum": "^3.13",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
