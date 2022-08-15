@@ -27,6 +27,7 @@ class MainCategoriesController extends Controller
     public function store(MainCategoryRequest $request)
     {
 
+
         try {
 
             DB::beginTransaction();

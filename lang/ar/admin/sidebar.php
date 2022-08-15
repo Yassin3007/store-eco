@@ -1,4 +1,6 @@
 <?php
 return [
-  'settings'=> 'الاعدادات'
+    'settings' => 'الاعدادت',
+    'shipping methods' => 'وسائل التوصيل',
+    'main slider'  => 'اسليدر الرئيسية '
 ];

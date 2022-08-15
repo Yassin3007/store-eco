@@ -21,11 +21,9 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){ //...
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+
     route::group(['namespace'=>'Admin' ,'middleware' =>'auth:admin','prefix'=>'admin'] ,function(){
-        route::get('/dashboard' , 'DashboardController@index')->name('admin.dashboard') ;
+        route::get('/' , 'DashboardController@index')->name('admin.dashboard') ;
         route::get('logout' , 'LoginController@logout')->name('admin.logout');
 
         route::group(['prefix' => 'settings' ] , function(){
@@ -109,6 +107,41 @@ Route::group(
             Route::post('images/db', 'ProductsController@saveProductImagesDB')->name('admin.products.images.store.db');
         });
         ################################## end brands    #######################################
+
+
+        ################################## attrributes routes ######################################
+        Route::group(['prefix' => 'attributes'], function () {
+            Route::get('/', 'AttributesController@index')->name('admin.attributes');
+            Route::get('create', 'AttributesController@create')->name('admin.attributes.create');
+            Route::post('store', 'AttributesController@store')->name('admin.attributes.store');
+            Route::get('delete/{id}', 'AttributesController@destroy')->name('admin.attributes.delete');
+            Route::get('edit/{id}', 'AttributesController@edit')->name('admin.attributes.edit');
+            Route::post('update/{id}', 'AttributesController@update')->name('admin.attributes.update');
+        });
+        ################################## end attributes    #######################################
+
+
+        ################################## brands options ######################################
+        Route::group(['prefix' => 'options'], function () {
+            Route::get('/', 'OptionsController@index')->name('admin.options');
+            Route::get('create', 'OptionsController@create')->name('admin.options.create');
+            Route::post('store', 'OptionsController@store')->name('admin.options.store');
+            //Route::get('delete/{id}','OptionsController@destroy') -> name('admin.options.delete');
+            Route::get('edit/{id}', 'OptionsController@edit')->name('admin.options.edit');
+            Route::post('update/{id}', 'OptionsController@update')->name('admin.options.update');
+            Route::get('update/{id}', 'OptionsController@destroy')->name('admin.options.delete');
+        });
+        ################################## end options    #######################################
+
+
+        ################################## sliders ######################################
+        Route::group(['prefix' => 'sliders'], function () {
+            Route::get('/', 'SliderController@addImages')->name('admin.sliders.create');
+            Route::post('images', 'SliderController@saveSliderImages')->name('admin.sliders.images.store');
+            Route::post('images/db', 'SliderController@saveSliderImagesDB')->name('admin.sliders.images.store.db');
+
+        });
+        ################################## end sliders    #######################################
 
 
 

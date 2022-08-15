@@ -57,12 +57,33 @@ class Product extends Model
         return $this->belongsTo(Brand::class)->withDefault();
     }
 
-    public function category(){
+    public function categories(){
         return $this->belongsToMany(Category::class,'product_categories');
     }
 
     public function tag(){
         return $this->belongsToMany(Tag::class ,'product_tags');
+    }
+
+    public function getActive(){
+        return   $this -> is_active == 0 ? 'غير مفعل ' : 'مفعل' ;
+    }
+
+    public function options(){
+        return $this->hasMany(Option::class ,'product_id');
+    }
+
+    public function scopeActive($query){
+        return $query->where('is_active',1);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class, 'product_id');
+    }
+
+    public function  getPhotoAttribute($val){
+        return ($val !== null) ? asset('assets/images/products/' . $val) : "";
     }
 
 

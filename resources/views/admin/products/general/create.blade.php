@@ -127,12 +127,12 @@
                                                             </label>
                                                             <select name="categories[]" class="select2 form-control" multiple>
                                                                 <optgroup label="من فضلك أختر القسم ">
-{{--                                                                    @if($categories && $categories -> count() > 0)--}}
-{{--                                                                        @foreach($categories as $category)--}}
-{{--                                                                            <option--}}
-{{--                                                                                value="{{$category -> id }}">{{$category -> name}}</option>--}}
-{{--                                                                        @endforeach--}}
-{{--                                                                    @endif--}}
+                                                                    @if($categories && $categories -> count() > 0)
+                                                                        @foreach($categories as $category)
+                                                                            <option
+                                                                                value="{{$category -> id }}">{{$category -> name}}</option>
+                                                                        @endforeach
+                                                                    @endif
                                                                 </optgroup>
                                                             </select>
                                                             @error('categories.0')
@@ -146,12 +146,12 @@
                                                             </label>
                                                             <select name="tags[]" class="select2 form-control" multiple>
                                                                 <optgroup label=" اختر ألعلامات الدلالية ">
-{{--                                                                    @if($tags && $tags -> count() > 0)--}}
-{{--                                                                        @foreach($tags as $tag)--}}
-{{--                                                                            <option--}}
-{{--                                                                                value="{{$tag -> id }}">{{$tag -> name}}</option>--}}
-{{--                                                                        @endforeach--}}
-{{--                                                                    @endif--}}
+                                                                    @if($tags && $tags -> count() > 0)
+                                                                        @foreach($tags as $tag)
+                                                                            <option
+                                                                                value="{{$tag -> id }}">{{$tag -> name}}</option>
+                                                                        @endforeach
+                                                                    @endif
                                                                 </optgroup>
                                                             </select>
                                                             @error('tags')
@@ -165,12 +165,12 @@
                                                             </label>
                                                             <select name="brand_id" class="select2 form-control">
                                                                 <optgroup label="من فضلك أختر الماركة ">
-{{--                                                                    @if($brands && $brands -> count() > 0)--}}
-{{--                                                                        @foreach($brands as $brand)--}}
-{{--                                                                            <option--}}
-{{--                                                                                value="{{$brand -> id }}">{{$brand -> name}}</option>--}}
-{{--                                                                        @endforeach--}}
-{{--                                                                    @endif--}}
+                                                                    @if($brands && $brands -> count() > 0)
+                                                                        @foreach($brands as $brand)
+                                                                            <option
+                                                                                value="{{$brand -> id }}">{{$brand -> name}}</option>
+                                                                        @endforeach
+                                                                    @endif
                                                                 </optgroup>
                                                             </select>
                                                             @error('brand_id')
